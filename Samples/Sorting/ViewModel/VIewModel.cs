@@ -17,25 +17,10 @@ namespace Sorting
     {
         private ObservableCollection<Vegetable> vegetables = new ObservableCollection<Vegetable>();
         private ObservableCollection<object> checkedItems = new ObservableCollection<object>();
-        private ObservableCollection<string> propertyNames = new ObservableCollection<string>();
         CollectionView view;
         public event PropertyChangedEventHandler PropertyChanged;
         private ICommand selectionChangedCommand;
-        private ICommand checkChangedCommand;
-
-        //Property collection in the Vegetable class
-        public ObservableCollection<string> PropertyNames
-        {
-            get
-            {
-                return propertyNames;
-            }
-            set
-            {
-                propertyNames = value;
-                OnPropertyChanged("PropertyNames");
-            }
-        }
+        private ICommand checkChangedCommand;        
 
         //Vegetables collection
         public ObservableCollection<Vegetable> Vegetables
@@ -159,13 +144,6 @@ namespace Sorting
             loadedCommand = new DelegateCommand<object>(OnLoaded);
             selectionChangedCommand = new DelegateCommand<object>(OnSelectionChanged);
             checkChangedCommand = new DelegateCommand<object>(OnCheckChanged);
-             
-            //Adding the Property names into the PropertyNames collection
-            PropertyInfo[] propertyInfos = typeof(Vegetable).GetProperties();
-            foreach (PropertyInfo propertyInfo in propertyInfos)
-            {
-                propertyNames.Add(propertyInfo.Name);
-            }
         }
 
         public void PopulateItems()

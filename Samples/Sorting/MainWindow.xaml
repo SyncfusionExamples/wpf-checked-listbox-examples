@@ -44,7 +44,7 @@
                   FontFamily="Segoe UI" 
                   Grid.Column="1" 
                   BorderBrush="Silver" 
-                  Header="Group by">
+                  Header="Sort by">
             <Grid HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
                   Margin="5">
