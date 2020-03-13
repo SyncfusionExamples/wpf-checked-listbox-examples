@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grouping
+namespace CheckListBox_NestedGrouping
 {
     class Vegetable
     {
-        public string Category { get; set; }             
+        public string Category { get; set; }
         public string Price { get; set; }
         public string Name { get; set; }
     }
