@@ -1,10 +1,6 @@
 ﻿using Syncfusion.Windows.Shared;
-using System;
-using System.Collections.Generic;
+using System.Windows;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace CheckListBox_Apperance
@@ -16,7 +12,17 @@ namespace CheckListBox_Apperance
         private Brush mouseOverBackgroundBrush = Brushes.Pink;
         private Brush selectedItemBackground = Brushes.Yellow;
         private ObservableCollection<string> daysCollection = new ObservableCollection<string>();
+        private FlowDirection flowDirection;
 
+        public FlowDirection FlowDirection
+        {
+            get { return flowDirection; }
+            set
+            {
+                flowDirection = value;
+                this.RaisePropertyChanged("FlowDirection");
+            }
+        }
         public ObservableCollection<string> DaysCollection
         {
             get

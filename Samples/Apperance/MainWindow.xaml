@@ -24,6 +24,7 @@
                                          Foreground="{Binding ForegroundBrush}" 
                                          MouseOverBackground ="{Binding MouseOverBackgroundBrush}" 
                                          SelectedItemBackground="{Binding SelectedItemBackground}"
+                                         FlowDirection="{Binding FlowDirection, Mode=TwoWay}"
                                          ItemsSource="{Binding DaysCollection}"
                                          x:Name="checkListBox" Margin="20"
                                          HorizontalAlignment="Stretch"
@@ -58,9 +59,14 @@
                 <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Mouse hover background"  Grid.Row="2"  Grid.Column="0"/>
                 <syncfusion:ColorPicker Grid.Row="2" Grid.Column="1" GradientBrushDisplayMode="Extended" Brush="{Binding MouseOverBackgroundBrush, Mode=TwoWay}" Margin="3" Name="mouseOverBackgroundBrush" />
 
-
-                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="SelectedItem Background)"  Grid.Row="3"  Grid.Column="0"/>
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="SelectedItem Background"  Grid.Row="3"  Grid.Column="0"/>
                 <syncfusion:ColorPicker Grid.Row="3" Grid.Column="1" GradientBrushDisplayMode="Extended" Brush="{Binding SelectedItemBackground, Mode=TwoWay}"  Margin="3" Name="selectedItemBackground"  />
+
+                <TextBlock FontWeight="Normal" FontFamily="Segoe UI" FontSize="13" Margin="3" Text ="Flow Direction)"  Grid.Row="4"  Grid.Column="0"/>
+                <ComboBox Grid.Row="4" Grid.Column="1" SelectedItem="{Binding FlowDirection, Mode=TwoWay}" Margin="3" Name="flowDirection" >
+                    <FlowDirection>RightToLeft</FlowDirection>
+                    <FlowDirection>LeftToRight</FlowDirection>
+                </ComboBox>
 
             </Grid>
         </GroupBox>
