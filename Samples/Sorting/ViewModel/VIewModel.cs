@@ -109,16 +109,17 @@ namespace Sorting
         {
             if (view != null && (param as ComboBox).SelectedItem != null)
             {
-                if (((param as ComboBox).SelectedValue.ToString() as string).Contains("Default Order"))
+                ComboBoxItem boxItem = (param as ComboBox).SelectedItem as ComboBoxItem;
+                if (boxItem.Content.Equals("Default Order"))
                 {
                     view.SortDescriptions.Clear();
                 }
-                else if (((param as ComboBox).SelectedValue.ToString() as string).Contains("Ascending"))
+                else if (boxItem.Content.Equals("Ascending"))
                 {
                     view.SortDescriptions.Clear();
                     view.SortDescriptions.Add(new SortDescription { PropertyName = "Name", Direction = ListSortDirection.Ascending });
                 }
-                else if (((param as ComboBox).SelectedValue.ToString() as string).Contains("Descending"))
+                else if (boxItem.Content.Equals("Descending"))
                 {
                     view.SortDescriptions.Clear();
                     view.SortDescriptions.Add(new SortDescription { PropertyName = "Name", Direction = ListSortDirection.Descending });
@@ -148,17 +149,17 @@ namespace Sorting
 
         public void PopulateItems()
         {
-            Vegetables.Add(new Vegetable { Price = 10, Name = "Yarrow", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = 20, Name = "Pumpkins", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = 30, Name = "Cabbage", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = 10, Name = "Spinach", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = 20, Name = "Wheat Grass", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = 30, Name = "Horse gram", Category = "Beans" });
-            Vegetables.Add(new Vegetable { Price = 10, Name = "Chickpea", Category = "Beans" });
-            Vegetables.Add(new Vegetable { Price = 20, Name = "Green bean", Category = "Beans" });
-            Vegetables.Add(new Vegetable { Price = 30, Name = "Garlic", Category = "Bulb and Stem" });
-            Vegetables.Add(new Vegetable { Price = 10, Name = "Onion", Category = "Bulb and Stem" });
-            Vegetables.Add(new Vegetable { Price = 20, Name = "Nopal", Category = "Bulb and Stem" });
+            Vegetables.Add(new Vegetable { Price = "$10", Name = "Yarrow", Category = "Leafy and Salad" });
+            Vegetables.Add(new Vegetable { Price = "$20", Name = "Pumpkins", Category = "Leafy and Salad" });
+            Vegetables.Add(new Vegetable { Price = "$30", Name = "Cabbage", Category = "Leafy and Salad" });
+            Vegetables.Add(new Vegetable { Price = "$10", Name = "Spinach", Category = "Leafy and Salad" });
+            Vegetables.Add(new Vegetable { Price = "$20", Name = "Wheat Grass", Category = "Leafy and Salad" });
+            Vegetables.Add(new Vegetable { Price = "$30", Name = "Horse gram", Category = "Beans" });
+            Vegetables.Add(new Vegetable { Price = "$10", Name = "Chickpea", Category = "Beans" });
+            Vegetables.Add(new Vegetable { Price = "$20", Name = "Green bean", Category = "Beans" });
+            Vegetables.Add(new Vegetable { Price = "$30", Name = "Garlic", Category = "Bulb and Stem" });
+            Vegetables.Add(new Vegetable { Price = "$10", Name = "Onion", Category = "Bulb and Stem" });
+            Vegetables.Add(new Vegetable { Price = "$20", Name = "Nopal", Category = "Bulb and Stem" });
         }
     }
 }
