@@ -23,9 +23,8 @@
                 <syncfusion:CheckListBox ItemsSource="{Binding Vegetables}"
                                          SelectedItems="{Binding CheckedItems}"
                                          DisplayMemberPath="Name"
-                                         Name="checkListBox"
-                                         Width="300" 
-                                         Height="600">
+                                         Name="checkListBox" Margin="20"
+                                         >
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Loaded">
                             <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
