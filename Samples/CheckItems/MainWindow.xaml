@@ -1,0 +1,40 @@
+﻿<Window x:Class="CheckListBox_CheckItem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:CheckListBox_CheckItem"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="SelectAll option" Height="350" Width="500">
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Margin="0"  Grid.Row="1">
+            <Grid>
+                <syncfusion:CheckListBox ItemsSource="{Binding Vegetables}"
+                                         SelectedItems="{Binding CheckedVegetables}" 
+                                         DisplayMemberPath="Name"
+                                         Margin="30"
+                                         Name="checkListBox">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" CommandParameter="{Binding ElementName=checkListBox}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </syncfusion:CheckListBox>
+            </Grid>
+        </Border>
+
+        <TextBlock Name="textblock" Text="{Binding CheckedItemsCount, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1"  >
+                    </TextBlock>                   
+            
+    </Grid>
+</Window>
