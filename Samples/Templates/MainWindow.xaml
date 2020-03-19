@@ -1,0 +1,61 @@
+﻿<Window x:Class="CheckListBox_Template.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:CheckListBox_Template"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Templates" Height="600" Width="500">
+    <Grid>
+        <syncfusion:CheckListBox  Grid.Row="1" 
+            IsSelectAllEnabled="True" 
+            Width="200" Height="370"
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Center"
+            x:Name="ListBox" ItemsSource="{Binding Vegetables}">
+            <syncfusion:CheckListBox.DataContext>
+                <local:ViewModel></local:ViewModel>
+            </syncfusion:CheckListBox.DataContext>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+            <!--DataTemplate for the CheckListBox items-->
+            <syncfusion:CheckListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontWeight="Bold" 
+                                   Foreground="DeepSkyBlue" 
+                                   Text="{Binding Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </syncfusion:CheckListBox.ItemTemplate>
+            
+            <!--DataTemplate for the GroupHeader items-->
+            <syncfusion:CheckListBox.GroupTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"
+                               Foreground="Green" 
+                               FontWeight="Bold">
+                    </TextBlock>
+                </DataTemplate>
+            </syncfusion:CheckListBox.GroupTemplate>
+
+            <!--DataTemplate for the SelectAll items-->
+            <syncfusion:CheckListBox.SelectAllTemplate>
+                <DataTemplate>
+                    <TextBlock FontWeight="Bold" 
+                               Foreground="Red" 
+                               Text="Select All" 
+                               FontStyle="Italic"/>
+                </DataTemplate>
+            </syncfusion:CheckListBox.SelectAllTemplate>
+
+
+        </syncfusion:CheckListBox>
+    </Grid>
+</Window>
