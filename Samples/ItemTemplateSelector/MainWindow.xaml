@@ -1,0 +1,40 @@
+﻿<Window x:Class="ItemTemplateSelector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItemTemplateSelector"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="350">
+    <Window.Resources>
+        <local:MyTemplateSelector x:Key="Mytemplate">
+            <local:MyTemplateSelector.Template>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontWeight="Bold"></TextBlock>
+                </DataTemplate>
+            </local:MyTemplateSelector.Template>
+            <local:MyTemplateSelector.itemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontStyle="Italic"></TextBlock>
+                </DataTemplate>
+            </local:MyTemplateSelector.itemTemplate>
+        </local:MyTemplateSelector>
+    </Window.Resources>
+    <Grid>
+        <syncfusion:CheckListBox ItemTemplateSelector="{StaticResource  Mytemplate}"
+                                 ItemsSource="{Binding Vegetables}"
+                                 Name="checkListBox"
+                                 Margin="20">            
+            <syncfusion:CheckListBox.DataContext>
+                <local:ViewModel></local:ViewModel>
+            </syncfusion:CheckListBox.DataContext>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </syncfusion:CheckListBox>
+    </Grid>
+</Window>

@@ -6,7 +6,7 @@
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:local="clr-namespace:CheckItem_By_Property"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-               mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Check Items by Collection" Height="600" Width="500">
     <Window.DataContext>
         <local:ViewModel></local:ViewModel>

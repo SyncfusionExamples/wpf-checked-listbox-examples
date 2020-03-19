@@ -1,0 +1,39 @@
+﻿<Window x:Class="ItemContainerStyleSelection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ItemContainerStyleSelection"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"  WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="350">
+    <Window.Resources>
+        <Style TargetType="syncfusion:CheckListBoxItem" x:Key="Groupstyle">
+            <Setter Property="Foreground" Value="Red"></Setter>
+        </Style>
+        <Style TargetType="syncfusion:CheckListBoxItem" x:Key="ItemStyle">
+            <Setter Property="Foreground" Value="Blue"></Setter>
+        </Style>
+        <local:VegetableStyleSelector x:Key="StyleSelector"
+                                      GroupStyle="{StaticResource Groupstyle}" 
+                                      ItemStyle="{StaticResource ItemStyle}">
+        </local:VegetableStyleSelector>
+    </Window.Resources>
+    <Grid>
+        <syncfusion:CheckListBox ItemContainerStyleSelector="{StaticResource StyleSelector}"
+                                 ItemsSource="{Binding Vegetables}"
+                                 DisplayMemberPath="Name"
+                                 Name="checkListBox"
+                                 Margin="20">
+            <syncfusion:CheckListBox.DataContext>
+                <local:ViewModel></local:ViewModel>
+            </syncfusion:CheckListBox.DataContext>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </syncfusion:CheckListBox>
+    </Grid>
+</Window>
