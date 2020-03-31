@@ -88,19 +88,19 @@ namespace Custom_Grouping
             else if (Category == "Month") {
                 //Sub-Grouping the employee who are all born on Jan-Mar 
                 if (result.Month >=1 && result.Month<=3) {
-                    return "Jan-Mar";
+                    return "Quarter-1";
                 }
                 //Sub-Grouping the employee who are all born on Apr-Jun
                 else if (result.Month >= 4 && result.Month <= 6) {
-                    return "Apr-Jun";
+                    return "Quarter-2";
                 }
                 //Sub-Grouping the employee who are all born on Jul-Sep
                 else if (result.Month >= 7 && result.Month <= 9) {
-                    return "Jul-Sep";
+                    return "Quarter-3";
                 }
                 //Sub-Grouping the employee who are all born on Oct-Dec
                 else {
-                    return "Oct-Dec";
+                    return "Quarter-4";
                 }
             }
             return "Others";
