@@ -4,23 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Custom_Grouping"
-          xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="650" Width="400">
+    <!--MainWindow.xaml-->
+    <Window.Resources>
+        <local:EmployeesCollection x:Key="EmployeesCollection">
+            <local:Employee Name="Daniel" DOB="02/15/1983" Age="37"/>
+            <local:Employee Name="James" DOB="06/29/1988" Age="32"/>
+            <local:Employee Name="Michael" DOB="06/10/1987" Age="33"/>
+            <local:Employee Name="Daniel" DOB="08/23/1980" Age="40"/>
+            <local:Employee Name="John" DOB="12/22/1990, " Age="30"/>
+            <local:Employee Name="Paul" DOB="04/08/1997" Age="23"/>
+            <local:Employee Name="Mark" DOB="08/05/1994" Age="26"/>
+            <local:Employee Name="George" DOB="10/01/1998" Age="22"/>
+            <local:Employee Name="Daniel" DOB="10/01/1998" Age="24"/>
+            <local:Employee Name="Thomes" DOB="10/08/1995" Age="25"/>
+            <local:Employee Name="Steven" DOB="12/15/1982" Age="38"/>
+        </local:EmployeesCollection>
+    </Window.Resources>
     <Grid>
-        <syncfusion:CheckListBox ItemsSource="{Binding Employees}" 
+        <syncfusion:CheckListBox ItemsSource="{StaticResource ResourceKey=EmployeesCollection}"
+                                 GroupDescriptions="{Binding GroupDescriptions}"
                                  DisplayMemberPath="Name"
                                  Name="checkListBox"
-                                 Margin="20">
+                                 Margin="20" >
             <syncfusion:CheckListBox.DataContext>
                 <local:ViewModel></local:ViewModel>
-            </syncfusion:CheckListBox.DataContext>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Loaded">
-                    <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+            </syncfusion:CheckListBox.DataContext>            
         </syncfusion:CheckListBox>
     </Grid>
 </Window>
