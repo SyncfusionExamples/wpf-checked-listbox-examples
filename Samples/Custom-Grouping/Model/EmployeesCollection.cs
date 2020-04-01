@@ -6,9 +6,5 @@ namespace Custom_Grouping
     //EmployeesCollection.cs
     public class EmployeesCollection : ObservableCollection<Employee>
     {
-        public EmployeesCollection()
-        {
-            
-        }
     }
 }

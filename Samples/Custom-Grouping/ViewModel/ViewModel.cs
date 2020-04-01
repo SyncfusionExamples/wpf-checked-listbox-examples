@@ -14,8 +14,7 @@ namespace Custom_Grouping
 {
     public class ViewModel : NotificationObject
     {
-        private ObservableCollection<GroupDescription> groupDescriptions =
-            new ObservableCollection<GroupDescription>();
+        private ObservableCollection<GroupDescription> groupDescriptions;
         private EmployeesCollection employeesCollection;
 
         public ObservableCollection<GroupDescription> GroupDescriptions
@@ -47,10 +46,7 @@ namespace Custom_Grouping
         public ViewModel()
         {
             EmployeesCollection = new EmployeesCollection();
-            //Adding group description to the GroupDescriptions collection
             GroupDescriptions = new ObservableCollection<GroupDescription>();
-            GroupDescriptions.Add(new PropertyGroupDescription("DOB", new DateConverter("Year")));
-            GroupDescriptions.Add(new PropertyGroupDescription("DOB", new DateConverter("Month")));
         }
     }   
 }

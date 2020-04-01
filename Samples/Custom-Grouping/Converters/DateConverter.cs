@@ -12,11 +12,8 @@ namespace Custom_Grouping
     //Converter for the Custom Grouping 
     public class DateConverter : IValueConverter
     {
-        string Category;
-        public DateConverter(string category)
-        {
-            Category = category;
-        }
+        public string Category { get; set; }
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             DateTime result;

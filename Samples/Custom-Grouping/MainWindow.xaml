@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:Custom_Grouping"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="650" Width="400">
+        Title="CheckListBox - Custom Grouping" Height="650" Width="400">
     <!--MainWindow.xaml-->
     <Window.Resources>
-        <local:EmployeesCollection x:Key="EmployeesCollection">
+        <!-- Define employee details-->
+        <local:EmployeesCollection x:Key="employees">
             <local:Employee Name="Daniel" DOB="02/15/1983" Age="37"/>
             <local:Employee Name="James" DOB="06/29/1988" Age="32"/>
             <local:Employee Name="Michael" DOB="06/10/1987" Age="33"/>
@@ -22,16 +23,25 @@
             <local:Employee Name="Thomes" DOB="10/08/1995" Age="25"/>
             <local:Employee Name="Steven" DOB="12/15/1982" Age="38"/>
         </local:EmployeesCollection>
+        
+        <!-- Define view model with group description -->
+        <local:DateConverter Category="Year" x:Key="year"/>
+        <local:DateConverter Category="Month"  x:Key="month"/>
+        <local:ViewModel x:Key="viewModel">
+            <local:ViewModel.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="DOB" 
+                                          Converter="{StaticResource year}"/>
+                <PropertyGroupDescription PropertyName="DOB"
+                                          Converter="{StaticResource month}"/>
+            </local:ViewModel.GroupDescriptions>
+        </local:ViewModel>
     </Window.Resources>
     <Grid>
-        <syncfusion:CheckListBox ItemsSource="{StaticResource ResourceKey=EmployeesCollection}"
+        <syncfusion:CheckListBox ItemsSource="{StaticResource ResourceKey=employees}"
                                  GroupDescriptions="{Binding GroupDescriptions}"
+                                 DataContext="{StaticResource viewModel}"
                                  DisplayMemberPath="Name"
                                  Name="checkListBox"
-                                 Margin="20" >
-            <syncfusion:CheckListBox.DataContext>
-                <local:ViewModel></local:ViewModel>
-            </syncfusion:CheckListBox.DataContext>            
-        </syncfusion:CheckListBox>
+                                 Margin="20"/>
     </Grid>
 </Window>
