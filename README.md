@@ -26,7 +26,4 @@ This repository contains the samples that demonstrate the functionalities of Pro
   <td><a href="Samples/Apperance">Apperance</a></td>
   <td><a href="Samples/Themes">Themes</a></td>
  <tr>
- </tr>
-  <td><a href="Samples/AutoGeneratingPropertyGridItem event">AutoGeneratingPropertyGridItem event</a></td>
- </tr>
 </table>
