@@ -1,4 +1,4 @@
-# ChecklistBox control samples
+# CheckListBox control samples
 
 This repository contains the samples that demonstrate the functionalities of CheckListBox.
 
