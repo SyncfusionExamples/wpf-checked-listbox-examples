@@ -8,7 +8,6 @@ using System.Windows.Data;
 
 namespace Custom_Grouping
 {
-    //ViewModel.cs
     //Converter for the Custom Grouping 
     public class DateConverter : IValueConverter
     {

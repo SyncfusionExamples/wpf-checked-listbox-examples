@@ -1,48 +1,56 @@
 ﻿using Syncfusion.Windows.Shared;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-using System.Windows.Input;
+using System.ComponentModel;
 
 namespace CheckListBox_Virtualization
 {
-    public class ViewModel
+    public class ViewModel : NotificationObject
     {
+        private ObservableCollection<GroupDescription> groupDescriptions;
         private ObservableCollection<Model> collection = new ObservableCollection<Model>();
         public ObservableCollection<Model> Collection
         {
-            get { return collection; }
-            set { collection = value; }
+            get 
+            { 
+                return collection;
+            }
+            set 
+            { 
+                collection = value; 
+            }
         }
 
-        public ICommand LoadedCommand { get; set; }
-        public void OnLoaded(object param)
+        public ObservableCollection<GroupDescription> GroupDescriptions
         {
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(Collection);
-
-            //Adding group description
-            view.GroupDescriptions.Add(new PropertyGroupDescription("GroupName"));
+            get
+            {
+                return groupDescriptions;
+            }
+            set
+            {
+                groupDescriptions = value;
+                RaisePropertyChanged("GroupDescriptions");
+            }
         }
 
         public ViewModel()
         {
+            GroupDescriptions = new ObservableCollection<GroupDescription>();
+
+            //Define virtualisation items
             Collection = new ObservableCollection<Model>();
             for (int i = 0; i < 1000; i++)
             {
                 for (int j = 0; j < 10; j++)
-                {
-                    Model myitem = new Model() { Name = "Module " + i.ToString(), GroupName = "Group" + j.ToString() };
-                    Collection.Add(myitem);
+                {                  
+                    Collection.Add(
+                        new Model()
+                        {
+                            Name = "Module " + i.ToString(),
+                            GroupName = "Group" + j.ToString() 
+                        });
                 }
             }
-
-            //Initialize the checklistbox LoadedCommand
-            LoadedCommand = new DelegateCommand<object>(OnLoaded);
-
         }
     }
 }
