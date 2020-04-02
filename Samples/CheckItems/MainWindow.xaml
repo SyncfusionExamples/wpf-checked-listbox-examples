@@ -7,34 +7,16 @@
         xmlns:local="clr-namespace:CheckListBox_CheckItem"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Check Items by Collection" Height="350" Width="500">
-    <Window.DataContext>
-        <local:ViewModel></local:ViewModel>
-    </Window.DataContext>
-    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <Border Margin="0"  Grid.Row="1">
-            <Grid>
-                <syncfusion:CheckListBox ItemsSource="{Binding Vegetables}"
-                                         SelectedItems="{Binding CheckedVegetables}" 
-                                         DisplayMemberPath="Name"
-                                         Margin="30"
-                                         Name="checkListBox">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Loaded">
-                            <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" CommandParameter="{Binding ElementName=checkListBox}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </syncfusion:CheckListBox>
-            </Grid>
-        </Border>
-
-        <TextBlock Name="textblock" Text="{Binding CheckedItemsCount, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1"  >
-                    </TextBlock>                   
-            
+        Title="Check Items by Collection" Height="350" Width="300">
+    <Grid>
+        <syncfusion:CheckListBox ItemsSource="{Binding Vegetables}"
+                                 SelectedItems="{Binding CheckedVegetables}" 
+                                 DisplayMemberPath="Name"
+                                 Margin="30"
+                                 Name="checkListBox">
+            <syncfusion:CheckListBox.DataContext>
+                <local:ViewModel></local:ViewModel>
+            </syncfusion:CheckListBox.DataContext>
+        </syncfusion:CheckListBox>
     </Grid>
 </Window>

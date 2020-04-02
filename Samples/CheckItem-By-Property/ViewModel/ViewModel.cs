@@ -1,69 +1,63 @@
 ﻿using Syncfusion.Windows.Shared;
-using Syncfusion.Windows.Tools.Controls;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-using System.Windows.Input;
+using System.ComponentModel;
 
 namespace CheckItem_By_Property
 {
-    
+    //ViewModel.cs
     public class ViewModel : NotificationObject
     {
-        private ObservableCollection<Model> collection = new ObservableCollection<Model>();
-        private string checkedItemsCount = "CheckedItemsCount : ";
-        private CheckListBox checkListBox;
+        private ObservableCollection<GroupItem> virtualCollection;
+        private ObservableCollection<GroupDescription> groupDescriptions;
 
-        public ObservableCollection<Model> Collection {
-            get { return collection; }
-            set { collection = value; }
-        }
-        public string CheckedItemsCount
+        public ObservableCollection<GroupItem> VirtualCollection
         {
             get
             {
-                return checkedItemsCount;
+                return virtualCollection;
             }
             set
             {
-                checkedItemsCount = value;
-                this.RaisePropertyChanged("CheckedItemsCount");
+                virtualCollection = value;
+                RaisePropertyChanged("VirtualCollection");
             }
         }
-        public ICommand LoadedCommand { get; set; }
-        public void OnLoaded(object param) {
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(Collection);
-
-            //Adding group description
-            view.GroupDescriptions.Add(new PropertyGroupDescription("GroupName"));
-
-            checkListBox = (CheckListBox)param;
-            checkListBox.SelectedItems.CollectionChanged += SelectedItems_CollectionChanged;
-        }
-        private void SelectedItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        public ObservableCollection<GroupDescription> GroupDescriptions
         {
-            CheckedItemsCount = "CheckedItemsCount : " + (sender as CheckListBox).SelectedItems.Count.ToString();
+            get
+            {
+                return groupDescriptions;
+            }
+            set
+            {
+                groupDescriptions = value;
+                RaisePropertyChanged("GroupDescriptions");
+            }
         }
+        public ViewModel()
+        {
+            GroupDescriptions = new ObservableCollection<GroupDescription>();
 
-        public ViewModel() {
-            Collection = new ObservableCollection<Model>();
-            for (int i = 0; i < 100; i++) {
-                for (int j = 0; j < 10; j++) {
-                    Model myitem = new Model() { Name = "Module " + i.ToString(), GroupName = "Group" + j.ToString() };
+            VirtualCollection = new ObservableCollection<GroupItem>();
+            for (int i = 0; i < 1000; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    GroupItem myitem = new GroupItem() 
+                    { 
+                        Name = "Module " + i.ToString(), 
+                        GroupName = "Group" + j.ToString() 
+                    };
                     if (i % 2 == 0)
+                    {
+                        //Define a checked state for items
                         myitem.IsChecked = true;
-                    Collection.Add(myitem);
+                    }
+                    VirtualCollection.Add(myitem);
                 }
             }
-
-            //Initialize the checklistbox LoadedCommand
-            LoadedCommand = new DelegateCommand<object>(OnLoaded);
         }
     }
 }
 
- 
+

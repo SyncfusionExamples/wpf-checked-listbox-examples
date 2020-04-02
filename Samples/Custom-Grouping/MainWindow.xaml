@@ -15,7 +15,7 @@
             <local:Employee Name="James" DOB="06/29/1988" Age="32"/>
             <local:Employee Name="Michael" DOB="06/10/1987" Age="33"/>
             <local:Employee Name="Daniel" DOB="08/23/1980" Age="40"/>
-            <local:Employee Name="John" DOB="12/22/1990, " Age="30"/>
+            <local:Employee Name="John" DOB="12/22/1990" Age="30"/>
             <local:Employee Name="Paul" DOB="04/08/1997" Age="23"/>
             <local:Employee Name="Mark" DOB="08/05/1994" Age="26"/>
             <local:Employee Name="George" DOB="10/01/1998" Age="22"/>

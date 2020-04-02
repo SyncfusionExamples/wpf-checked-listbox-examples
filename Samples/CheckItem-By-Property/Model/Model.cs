@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CheckItem_By_Property
 {
-    public class Model {
+    //Model.cs
+    public class GroupItem
+    {
         public string Name { get; set; }
         public string GroupName { get; set; }
         public bool IsChecked { get; set; }
