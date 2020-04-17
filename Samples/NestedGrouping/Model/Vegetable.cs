@@ -9,7 +9,7 @@ namespace CheckListBox_NestedGrouping
     class Vegetable
     {
         public string Category { get; set; }
-        public string Price { get; set; }
+        public int Price { get; set; }
         public string Name { get; set; }
     }
 }

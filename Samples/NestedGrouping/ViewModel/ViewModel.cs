@@ -106,12 +106,12 @@ namespace CheckListBox_NestedGrouping
             PopulateItems();
 
             //Items added in this collection to be Checked.
-            CheckedItems = new ObservableCollection<object>();
-            CheckedItems.Add(Vegetables[0]);
-            CheckedItems.Add(Vegetables[2]);
-            CheckedItems.Add(Vegetables[4]);
-            CheckedItems.Add(Vegetables[6]);
-            CheckedItems.Add(Vegetables[8]);
+            //CheckedItems = new ObservableCollection<object>();
+            //CheckedItems.Add(Vegetables[0]);
+            //CheckedItems.Add(Vegetables[2]);
+            //CheckedItems.Add(Vegetables[4]);
+            //CheckedItems.Add(Vegetables[6]);
+            //CheckedItems.Add(Vegetables[8]);
 
             //Initialize the CheckListBox loaded command and ComboBox selection changed commands
             loadedCommand = new DelegateCommand<object>(OnLoaded);
@@ -120,17 +120,14 @@ namespace CheckListBox_NestedGrouping
 
         public void PopulateItems()
         {
-            Vegetables.Add(new Vegetable { Price = "$10", Name = "Yarrow", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = "$20", Name = "Pumpkins", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = "$30", Name = "Cabbage", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = "$10", Name = "Spinach", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = "$20", Name = "Wheat Grass", Category = "Leafy and Salad" });
-            Vegetables.Add(new Vegetable { Price = "$30", Name = "Horse gram", Category = "Beans" });
-            Vegetables.Add(new Vegetable { Price = "$10", Name = "Chickpea", Category = "Beans" });
-            Vegetables.Add(new Vegetable { Price = "$20", Name = "Green bean", Category = "Beans" });
-            Vegetables.Add(new Vegetable { Price = "$30", Name = "Garlic", Category = "Bulb and Stem" });
-            Vegetables.Add(new Vegetable { Price = "$10", Name = "Onion", Category = "Bulb and Stem" });
-            Vegetables.Add(new Vegetable { Price = "$20", Name = "Nopal", Category = "Bulb and Stem" });
+           // Vegetables = new ObservableCollection<Vegetable>();
+            Vegetables.Add(new Vegetable { Price = 10, Name = "Yarrow", Category = "Leafy and Salad" });
+            Vegetables.Add(new Vegetable { Price = 20, Name = "Cabbage", Category = "Leafy and Salad" });
+            Vegetables.Add(new Vegetable { Price = 30, Name = "Horse gram", Category = "Beans" });
+            Vegetables.Add(new Vegetable { Price = 20, Name = "Green bean", Category = "Beans" });
+            Vegetables.Add(new Vegetable { Price = 10, Name = "Onion", Category = "Bulb and Stem" });
+            Vegetables.Add(new Vegetable { Price = 30, Name = "Nopal", Category = "Bulb and Stem" });
+
         }
     }
 }
