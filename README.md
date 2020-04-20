@@ -6,7 +6,7 @@ This repository contains the samples that demonstrate the functionalities of Che
  <tr>
   <td><a href="Samples/Getting-Started">Getting Started</a></td>
   <td><a href="Samples/CheckItems">CheckItems using collection</a></td>
-  <td><a href="Samples/>CheckItem-By-Property">CheckItem by property</a></td>
+  <td><a href="Samples/CheckItem-By-Property">CheckItem by property</a></td>
   <td><a href="Samples/FirstClick">CheckItem by FirstClick</a></td>
   <td><a href="Samples/SelectAll">SelectAll option</a></td>  
   </tr>
