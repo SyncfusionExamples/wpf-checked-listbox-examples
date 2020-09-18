@@ -65,6 +65,10 @@ namespace CheckListBox_Themes
             //Theme list  added in the collection
             Themes.Add("Blend");
             Themes.Add("Lime");
+            Themes.Add("MaterialDark");
+            Themes.Add("MaterialDarkBlue");
+            Themes.Add("MaterialLight");
+            Themes.Add("MaterialLightBlue");
             Themes.Add("Metro");
             Themes.Add("Office2010Black");
             Themes.Add("Office2010Blue");
@@ -75,6 +79,8 @@ namespace CheckListBox_Themes
             Themes.Add("Office2016Colorful");
             Themes.Add("Office2016DarkGray");
             Themes.Add("Office2016White");
+            Themes.Add("Office2019Black");
+            Themes.Add("Office2019Colorful");
             Themes.Add("Office365");
             Themes.Add("Saffron");
             Themes.Add("VisualStudio2013");
