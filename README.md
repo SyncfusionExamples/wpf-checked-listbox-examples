@@ -27,5 +27,6 @@ This repository contains the samples that demonstrate the functionalities of Che
   <tr>
   <td><a href="Samples/Apperance">Apperance</a></td>
   <td><a href="Samples/Themes">Themes</a></td>
+  <td><a href="Samples/Localization">Localization</a></td>
  <tr>
 </table>
