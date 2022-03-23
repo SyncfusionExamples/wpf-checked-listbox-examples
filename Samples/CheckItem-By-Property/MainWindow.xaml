@@ -27,7 +27,7 @@
                         <!--Binding the IsChecked property from ViewModel-->
                         <syncfusion:CheckListBox.ItemContainerStyle>
                             <Style TargetType="syncfusion:CheckListBoxItem">
-                                <Setter Property="IsChecked" Value="{Binding IsChecked}"/>
+                                <Setter Property="IsChecked" Value="{Binding Mode=TwoWay, Path=IsChecked}"/>
                             </Style>
                         </syncfusion:CheckListBox.ItemContainerStyle>
 
