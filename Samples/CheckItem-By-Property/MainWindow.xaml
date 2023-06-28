@@ -17,20 +17,14 @@
         </local:ViewModel>
     </Window.Resources>
     <Grid>
-        <syncfusion:CheckListBox ItemsSource="{Binding VirtualCollection}"
+        <syncfusion:CheckListBox IsCheckedMemberPath="Enabled"
+                                 ItemsSource="{Binding VirtualCollection}"
                                  GroupDescriptions="{Binding GroupDescriptions}"
                                  DataContext="{StaticResource viewModel}"
                                  DisplayMemberPath="Name" 
                                  Name="checkListBox"
                                  Margin="20">
             
-                        <!--Binding the IsChecked property from ViewModel-->
-                        <syncfusion:CheckListBox.Resources>
-                            <Style TargetType="syncfusion:CheckListBoxItem">
-                                <Setter Property="IsChecked" Value="{Binding Mode=TwoWay, Path=IsChecked}"/>
-                            </Style>
-                        </syncfusion:CheckListBox.Resources>
-
                         <!--Disable the Virtualization to update the checked item-->
                         <syncfusion:CheckListBox.ItemsPanel>
                             <ItemsPanelTemplate>
