@@ -39,7 +39,7 @@ namespace CheckItem_By_Property
             GroupDescriptions = new ObservableCollection<GroupDescription>();
 
             VirtualCollection = new ObservableCollection<GroupItem>();
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
@@ -51,7 +51,7 @@ namespace CheckItem_By_Property
                     if (i % 2 == 0)
                     {
                         //Define a checked state for items
-                        myitem.IsChecked = true;
+                        myitem.Enabled = true;
                     }
                     VirtualCollection.Add(myitem);
                 }
